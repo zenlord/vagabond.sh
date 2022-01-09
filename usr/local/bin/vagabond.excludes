@@ -1,0 +1,40 @@
+# Directories to exclude:
+
+.gvfs
+.local/share/gvfs-metadata
+.local/share/tracker
+.Private
+.dbus
+.cache
+.Trash*
+.local/share/Trash
+.cddb
+.aptitude
+.mozilla/firefox/*/Cache
+.thunderbird/*/Cache
+.config/chromium/*/Local Storage
+.config/chromium/*/Session Storage
+.config/chromium/*/Application Cache
+.config/chromium/*/History Index *
+.config/libreoffice/4/cache
+.config/*/Cache
+.ICAClient/logs
+.ICAClient/.tmp
+.ICAClient/cache/zlcache
+Downloads/*
+Muziek/*
+"Video's"/*
+-bak
+
+# Files to exclude:
+
+.xsession-errors
+.recently-used
+.recently-used.xbel
+.thumbnails
+.Xauthority
+.ICEauthority
+.gksu.lock
+.pulse
+.pulse-cookie
+.esd_auth

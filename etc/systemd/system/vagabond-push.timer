@@ -1,0 +1,10 @@
+[Unit]
+Description=Push contents of local $HOME to remote server every hour
+
+[Timer]
+OnCalendar=*-*-* 8,9,10,11,12,13,14,15,16,17,18,19,20,21,22:00
+RandomizedDelaySec=60s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

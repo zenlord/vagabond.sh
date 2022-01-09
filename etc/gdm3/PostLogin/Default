@@ -1,0 +1,19 @@
+#!/bin/sh
+
+SERVERNAME=host.domain
+SERVERPORT=2049
+
+### Ensure potential leftovers are removed
+/bin/rm "/tmp/home_$USER" &>/dev/null
+
+ONLINE=$(/usr/bin/nc -z "$SERVERNAME" "SERVERPORT" 2>/dev/null)
+if [[ $? -eq 1 ]]; then
+  ## Create a local $HOME in case the device cannot reach the server
+  logger -t "GDM PostLogin" -s "Host is not online. Starting mitigation plan."
+  /usr/sbin/mkhomedir_helper "$USER" "007" "/etc/skel" && touch "/tmp/home_$USER"
+else
+  ## Pull/sync the local $HOME from the server
+  logger -t "GDM PostLogin" -s "Host is online. Pulling $HOME from remote server."
+  /usr/local/bin/vagabond.sh pull "$SERVERNAME" homes "$USER"
+fi
+exit 0

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+SERVERNAME=server.domain
+SERVERPORT=2019
+
+if [ -f "/tmp/home_$USER" ]; then
+  logger -t "GDM PostSession" -s "Remove leftovers of mitigation plan for Host not being online during login."
+  /bin/rm -rf "/tmp/home_$USER"
+fi
+
+if [ -f "/tmp/vagabond.sh_user" ]; then
+  logger -t "GDM PostSession" -s "Remove vagabond.sh tmpfile."
+  /bin/rm -rf "/tmp/vagabond.sh_user"
+fi
+
+/usr/local/bin/vagabond.sh push "$SERVERNAME" homes "$USER"
+
+exit 0
