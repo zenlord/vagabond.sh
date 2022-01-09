@@ -2,7 +2,8 @@
 A wrapper script for rsync to sync $HOME to/from a remote rsync- or ssh-server
 
 # Goal
-Solve the issue with roaming profiles with NFS(v4) over WiFi
+Solve the issue with roaming user profiles with NFS(v4) over WiFi/WAN (sluggishness)
+More info: https://unix.stackexchange.com/questions/682711/centralized-home-for-roaming-devices-sync-instead-of-nfs
 
 # Solution
 Set up this script to:
